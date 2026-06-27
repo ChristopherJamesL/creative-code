@@ -1,0 +1,18 @@
+- Something published on vercel
+- Uses supabase
+- connects with an AI to scan files from supabase (supabase buckets).
+- private login to see files.
+- files can be tagged. sort by files.
+- custom dropdown component and filters.
+- something tailored to legal field.
+
+✅ UI primitives (done)
+Sidebar
+Dashboard layout
+Mock document data
+DocumentCard
+DocumentGrid
+Search bar
+Filters
+Sorting
+AI summary panel
