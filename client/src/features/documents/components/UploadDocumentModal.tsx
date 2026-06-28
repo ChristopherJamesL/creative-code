@@ -106,9 +106,6 @@ export default function UploadDocumentModal({
     formData.append("date", date);
     if (groupId) formData.append("group_id", groupId);
 
-    console.log("[upload] state →", { title, client, type, status, date, groupId, fileName: file.name, fileSize: file.size });
-    console.log("[upload] formData entries →", [...formData.entries()]);
-
     upload.mutate(formData, {
       onSuccess: handleClose,
       onError: () => setError("Upload failed. Please try again."),

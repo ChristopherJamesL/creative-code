@@ -48,11 +48,8 @@ export async function httpGetDocument(req: Request, res: Response) {
   const { userId } = req as AuthenticatedRequest;
   const { id } = req.params as { id: string };
 
-  console.log("[getDocument] called", { id, userId });
-
   try {
     const doc = await getDocumentById(userId, id);
-    console.log("[getDocument] success", doc?.id);
     return sendSuccess(res, { data: doc });
   } catch (err) {
     const message = err instanceof Error ? err.message : "Document not found";
@@ -108,7 +105,6 @@ export async function httpGetFileUrl(req: Request, res: Response) {
 
   try {
     const url = await getSignedUrl(userId, id);
-    console.log("[getFileUrl] success", id, url.slice(0, 100));
     return sendSuccess(res, { data: { url } });
   } catch (err) {
     const message = err instanceof Error ? err.message : "Failed to generate URL";
