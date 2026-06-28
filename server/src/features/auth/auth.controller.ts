@@ -3,10 +3,12 @@ import { signIn, getProfileById } from "./auth.service.js";
 import { sendSuccess } from "../../utils/response.js";
 import type { AuthenticatedRequest } from "../../middleware/auth.js";
 
+const isProduction = process.env.NODE_ENV === "production";
+
 const COOKIE_OPTIONS = {
   httpOnly: true,
-  secure: process.env.NODE_ENV === "production",
-  sameSite: "lax" as const,
+  secure: isProduction,
+  sameSite: (isProduction ? "none" : "lax") as "none" | "lax",
   path: "/",
 };
 
