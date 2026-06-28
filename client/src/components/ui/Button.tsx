@@ -10,25 +10,25 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const variantClasses: Record<Variant, string> = {
   primary:
-    "bg-primary text-primary-foreground hover:bg-primary/90 active:bg-primary/80",
+    "bg-primary text-primary-foreground hover:bg-primary/85 active:bg-primary/75",
   secondary:
-    "bg-secondary text-secondary-foreground border border-border hover:bg-secondary/80 active:bg-secondary/70",
+    "bg-secondary text-secondary-foreground border border-border hover:bg-secondary/70 active:bg-secondary/60",
   destructive:
     "bg-destructive text-destructive-foreground hover:bg-destructive/90 active:bg-destructive/80",
   ghost:
-    "bg-transparent text-foreground hover:bg-secondary active:bg-secondary/80",
+    "bg-transparent text-foreground hover:bg-secondary active:bg-secondary/70",
 };
 
 const sizeClasses: Record<Size, string> = {
-  sm: "h-9  px-3 text-sm",
-  md: "h-10 px-4 text-sm",
-  lg: "h-11 px-6 text-base",
+  sm: "h-7  px-2.5 text-xs",
+  md: "h-8  px-3   text-[13px]",
+  lg: "h-9  px-4   text-sm",
 };
 
 const base =
-  "inline-flex items-center justify-center font-medium rounded-md transition-colors select-none touch-manipulation " +
-  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary " +
-  "disabled:opacity-50 disabled:cursor-not-allowed";
+  "inline-flex items-center justify-center font-medium rounded transition-colors select-none touch-manipulation " +
+  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-1 " +
+  "disabled:opacity-40 disabled:cursor-not-allowed";
 
 export default function Button({
   variant = "primary",

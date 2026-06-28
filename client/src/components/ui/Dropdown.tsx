@@ -18,7 +18,7 @@ interface DropdownProps {
 
 const chevron = (
   <svg
-    className="h-4 w-4 text-muted-foreground shrink-0 transition-transform duration-150"
+    className="h-3 w-3 text-muted-foreground shrink-0"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 20 20"
     fill="currentColor"
@@ -47,16 +47,13 @@ export default function Dropdown({
 
   const selectedLabel = options.find((o) => o.value === value)?.label;
 
-  // Close when clicking outside the dropdown
   useEffect(() => {
     if (!isOpen) return;
-
     function handleClickOutside(e: MouseEvent) {
       if (!containerRef.current?.contains(e.target as Node)) {
         setIsOpen(false);
       }
     }
-
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [isOpen]);
@@ -71,15 +68,14 @@ export default function Dropdown({
   }
 
   return (
-    <div ref={containerRef} className={`flex flex-col gap-1.5 ${className}`}>
+    <div ref={containerRef} className={`flex flex-col gap-1 ${className}`}>
       {label && (
-        <label htmlFor={id} className="text-sm font-medium text-foreground">
+        <label htmlFor={id} className="text-xs font-medium text-foreground">
           {label}
         </label>
       )}
 
       <div className="relative">
-        {/* Trigger */}
         <button
           id={id}
           type="button"
@@ -89,35 +85,25 @@ export default function Dropdown({
           aria-haspopup="listbox"
           aria-expanded={isOpen}
           className={
-            "w-full h-10 flex items-center justify-between gap-2 rounded-md border border-border " +
-            "bg-background pl-3 pr-3 text-base transition-colors select-none touch-manipulation " +
-            "focus:outline-none focus:ring-2 focus:ring-primary " +
-            "disabled:opacity-50 disabled:cursor-not-allowed " +
-            (isOpen ? "ring-2 ring-primary" : "")
+            "w-full h-8 flex items-center justify-between gap-2 rounded border border-border " +
+            "bg-background pl-2.5 pr-2 text-[13px] transition-colors select-none touch-manipulation " +
+            "focus:outline-none focus:ring-1 focus:ring-primary " +
+            "disabled:opacity-40 disabled:cursor-not-allowed " +
+            (isOpen ? "ring-1 ring-primary" : "")
           }
         >
-          <span
-            className={
-              selectedLabel ? "text-foreground" : "text-muted-foreground"
-            }
-          >
+          <span className={selectedLabel ? "text-foreground" : "text-muted-foreground"}>
             {selectedLabel ?? placeholder}
           </span>
-          <span
-            className={`transition-transform duration-150 ${isOpen ? "rotate-180" : ""}`}
-          >
+          <span className={`transition-transform duration-150 ${isOpen ? "rotate-180" : ""}`}>
             {chevron}
           </span>
         </button>
 
-        {/* Options menu */}
         {isOpen && (
           <ul
             role="listbox"
-            className={
-              "absolute z-50 mt-1 w-full rounded-md border border-border bg-card shadow-md " +
-              "max-h-60 overflow-y-auto py-1"
-            }
+            className="absolute z-50 mt-1 w-full rounded border border-border bg-card shadow-lg max-h-56 overflow-y-auto py-0.5"
           >
             {options.map((opt) => (
               <li
@@ -125,31 +111,21 @@ export default function Dropdown({
                 role="option"
                 aria-selected={opt.value === value}
                 onMouseDown={(e) => {
-                  // mousedown instead of click to fire before the outside-click handler
                   e.preventDefault();
                   handleSelect(opt.value);
                 }}
                 className={
-                  "flex items-center justify-between px-3 py-2 text-sm cursor-pointer " +
+                  "flex items-center justify-between px-2.5 py-1.5 text-[13px] cursor-pointer " +
                   "transition-colors select-none " +
                   (opt.value === value
-                    ? "bg-primary/10 text-primary font-medium"
-                    : "text-foreground hover:bg-secondary")
+                    ? "bg-secondary text-foreground font-medium"
+                    : "text-foreground hover:bg-secondary/60")
                 }
               >
                 {opt.label}
                 {opt.value === value && (
-                  <svg
-                    className="h-4 w-4 shrink-0"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143z"
-                      clipRule="evenodd"
-                    />
+                  <svg className="h-3 w-3 shrink-0 text-muted-foreground" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143z" clipRule="evenodd" />
                   </svg>
                 )}
               </li>

@@ -1,7 +1,7 @@
 export function FileIcon() {
   return (
     <svg
-      className="h-5 w-5"
+      className="h-4 w-4"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -19,7 +19,7 @@ export function FileIcon() {
 export function ClockIcon() {
   return (
     <svg
-      className="h-5 w-5"
+      className="h-4 w-4"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -37,7 +37,7 @@ export function ClockIcon() {
 export function SparkleIcon() {
   return (
     <svg
-      className="h-5 w-5"
+      className="h-4 w-4"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -54,7 +54,7 @@ export function SparkleIcon() {
 export function UploadIcon() {
   return (
     <svg
-      className="h-5 w-5"
+      className="h-4 w-4"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"

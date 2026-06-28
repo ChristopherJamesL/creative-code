@@ -1,6 +1,5 @@
 import DashboardStatCard from "./DashboardStatCard";
 import { FileIcon, ClockIcon, SparkleIcon, UploadIcon } from "../icons/icons";
-
 import type { DashboardStatsProps, StatConfig } from "../dashboard.types";
 
 export default function DashboardStats({ data }: DashboardStatsProps) {
@@ -40,7 +39,7 @@ export default function DashboardStats({ data }: DashboardStatsProps) {
   ];
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
       {cards.map((card) => (
         <DashboardStatCard key={card.label} {...card} />
       ))}

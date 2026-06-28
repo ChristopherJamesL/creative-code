@@ -1,4 +1,14 @@
-import type { DocStatus, DocType, MockDocument } from "../documents.types";
+import type { DocStatus, DocType } from "../documents.types";
+
+export interface MockDocument {
+  id: string;
+  title: string;
+  client: string;
+  type: DocType;
+  status: DocStatus;
+  date: string;
+  aiReady: boolean;
+}
 
 export const MOCK_DOCUMENTS: MockDocument[] = [
   {
@@ -56,20 +66,3 @@ export const MOCK_DOCUMENTS: MockDocument[] = [
     aiReady: true,
   },
 ];
-
-export const STATUS_BADGE: Record<
-  DocStatus,
-  { variant: "success" | "warning" | "destructive"; label: string }
-> = {
-  approved: { variant: "success", label: "Approved" },
-  pending: { variant: "warning", label: "Pending Review" },
-  rejected: { variant: "destructive", label: "Rejected" },
-};
-
-export const TYPE_BADGE: Record<
-  DocType,
-  { variant: "info" | "default"; label: string }
-> = {
-  pdf: { variant: "info", label: "PDF" },
-  docx: { variant: "default", label: "DOCX" },
-};

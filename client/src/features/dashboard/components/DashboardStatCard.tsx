@@ -10,26 +10,24 @@ export default function DashboardStatCard({
   to,
 }: DashboardStatCardProps) {
   const variantClasses: Record<StatCardVariant, string> = {
-    primary: "bg-primary/10 text-primary",
+    primary: "bg-secondary text-foreground",
     warning: "bg-warning/15 text-warning",
     success: "bg-success/15 text-success",
   };
 
   const baseClass =
-    "flex flex-col gap-3 rounded-xl border border-border bg-card p-5 transition-all";
-  const linkClass = `${baseClass} hover:border-primary hover:shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2`;
+    "flex items-center gap-4 rounded-lg border border-border bg-card p-4 transition-colors";
+  const linkClass = `${baseClass} hover:bg-secondary/40 hover:border-border/80 focus:outline-none focus:ring-1 focus:ring-primary`;
 
   const content = (
     <>
-      <div
-        className={`flex h-10 w-10 items-center justify-center rounded-lg ${variantClasses[variant]}`}
-      >
+      <div className={`flex h-8 w-8 shrink-0 items-center justify-center rounded ${variantClasses[variant]}`}>
         {icon}
       </div>
-      <div>
-        <p className="text-2xl font-bold text-card-foreground">{value}</p>
-        <p className="text-sm font-medium text-foreground">{label}</p>
-        <p className="mt-0.5 text-xs text-muted-foreground">{description}</p>
+      <div className="min-w-0">
+        <p className="text-xl font-semibold text-card-foreground leading-none">{value}</p>
+        <p className="mt-1 text-[13px] font-medium text-foreground">{label}</p>
+        <p className="mt-0.5 text-xs text-muted-foreground truncate">{description}</p>
       </div>
     </>
   );

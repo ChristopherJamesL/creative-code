@@ -10,17 +10,6 @@ interface ModalProps {
 export default function Modal({ open, onClose, title, children }: ModalProps) {
   const panelRef = useRef<HTMLDivElement>(null);
 
-  // Escape key closes the modal
-  useEffect(() => {
-    if (!open) return;
-
-    function handleKeyDown(e: KeyboardEvent) {
-      if (e.key === "Escape") onClose();
-    }
-
-    document.addEventListener("keydown", handleKeyDown);
-    return () => document.removeEventListener("keydown", handleKeyDown);
-  }, [open, onClose]);
 
   // Prevent background scroll while open
   useEffect(() => {
@@ -45,10 +34,6 @@ export default function Modal({ open, onClose, title, children }: ModalProps) {
     // Backdrop
     <div
       className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-foreground/30 backdrop-blur-sm"
-      onMouseDown={(e) => {
-        // Close when clicking directly on the backdrop (not the panel)
-        if (e.target === e.currentTarget) onClose();
-      }}
     >
       {/* Dialog panel */}
       <div

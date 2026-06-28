@@ -14,7 +14,7 @@ const variantClasses: Record<Variant, string> = {
   info:        "bg-primary/10 text-primary",
 };
 
-const base = "inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium select-none";
+const base = "inline-flex items-center rounded px-1.5 py-0.5 text-[10px] font-medium select-none tracking-wide";
 
 export default function Badge({
   variant = "default",

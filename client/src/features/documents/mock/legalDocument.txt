@@ -1,0 +1,113 @@
+CONFIDENTIAL
+
+EMPLOYMENT AGREEMENT
+
+This Employment Agreement ("Agreement") is entered into as of June 1, 2026, by and between:
+
+TechCorp Inc., a corporation organized and existing under the laws of the State of Delaware,
+with its principal place of business at 100 Innovation Drive, San Francisco, CA 94105
+("Employer"),
+
+and
+
+Jane A. Smith, an individual residing at 42 Maple Street, San Francisco, CA 94110
+("Employee").
+
+RECITALS
+
+WHEREAS, Employer desires to employ Employee in the capacity set forth herein, and Employee
+desires to accept such employment, on the terms and conditions set forth in this Agreement;
+
+NOW, THEREFORE, in consideration of the mutual covenants and agreements contained herein,
+and for other good and valuable consideration, the receipt and sufficiency of which are hereby
+acknowledged, the parties agree as follows:
+
+1. POSITION AND DUTIES
+
+1.1 Position. Employer hereby employs Employee as Senior Software Engineer. Employee accepts
+such employment and agrees to perform the duties and responsibilities associated with such
+position as directed by Employer from time to time.
+
+1.2 Full-Time Service. Employee agrees to devote Employee's full business time, attention, skill,
+and effort to the performance of Employee's duties hereunder and shall not engage in any other
+employment or business activities without the prior written consent of Employer.
+
+2. TERM
+
+This Agreement shall commence on June 1, 2026, and shall continue until terminated in
+accordance with Section 6 of this Agreement ("Term").
+
+3. COMPENSATION
+
+3.1 Base Salary. During the Term, Employer shall pay Employee a base salary of $180,000 per
+year ("Base Salary"), payable in equal installments in accordance with Employer's standard
+payroll practices, less applicable withholdings and deductions.
+
+3.2 Bonus. Employee shall be eligible to receive an annual performance bonus of up to 20% of
+Employee's Base Salary, based on achievement of performance goals established by Employer.
+
+3.3 Benefits. Employee shall be entitled to participate in any employee benefit plans generally
+available to Employer's employees, subject to applicable plan terms and eligibility requirements.
+
+4. CONFIDENTIALITY
+
+4.1 Confidential Information. Employee acknowledges that, in the course of employment,
+Employee will have access to confidential and proprietary information belonging to Employer,
+including but not limited to trade secrets, business plans, customer lists, financial data, product
+roadmaps, and technical know-how ("Confidential Information").
+
+4.2 Non-Disclosure. Employee agrees to hold all Confidential Information in strict confidence and
+not to disclose any Confidential Information to any third party without Employer's prior written
+consent. This obligation shall survive the termination of this Agreement for a period of five (5)
+years.
+
+5. INTELLECTUAL PROPERTY
+
+All inventions, discoveries, developments, improvements, and works of authorship created by
+Employee during the Term that relate to Employer's business shall be the sole and exclusive
+property of Employer. Employee hereby assigns all right, title, and interest in such works to
+Employer.
+
+6. TERMINATION
+
+6.1 At-Will Employment. Employment under this Agreement is at-will and may be terminated by
+either party at any time, with or without cause, upon thirty (30) days' written notice.
+
+6.2 Termination for Cause. Employer may terminate Employee's employment immediately for
+cause, which includes but is not limited to: material breach of this Agreement, gross misconduct,
+fraud, or willful neglect of duties.
+
+6.3 Effect of Termination. Upon termination, Employee shall return all Employer property and
+Confidential Information in Employee's possession.
+
+7. NON-COMPETITION
+
+During the Term and for a period of twelve (12) months following termination, Employee agrees
+not to directly or indirectly engage in any business that competes with Employer's core business
+within the United States without Employer's prior written consent.
+
+8. GENERAL PROVISIONS
+
+8.1 Governing Law. This Agreement shall be governed by and construed in accordance with the
+laws of the State of Delaware, without regard to its conflict of laws principles.
+
+8.2 Entire Agreement. This Agreement constitutes the entire agreement between the parties with
+respect to the subject matter hereof and supersedes all prior negotiations, representations, or
+agreements.
+
+8.3 Amendments. This Agreement may not be amended or modified except by a written instrument
+signed by both parties.
+
+8.4 Severability. If any provision of this Agreement is held to be invalid or unenforceable, the
+remaining provisions shall continue in full force and effect.
+
+IN WITNESS WHEREOF, the parties have executed this Agreement as of the date first written above.
+
+EMPLOYER:                                   EMPLOYEE:
+
+TechCorp Inc.                               Jane A. Smith
+
+By: ___________________________             ___________________________
+Name: Robert J. Chen                        Jane A. Smith
+Title: Chief Executive Officer
+Date: June 1, 2026                          Date: June 1, 2026

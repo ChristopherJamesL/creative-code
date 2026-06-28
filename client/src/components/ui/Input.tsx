@@ -6,10 +6,10 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 const base =
-  "w-full h-10 rounded-md border bg-background px-3 text-base text-foreground " +
+  "w-full h-8 rounded border bg-background px-2.5 text-base text-foreground " +
   "placeholder:text-muted-foreground transition-colors " +
-  "focus:outline-none focus:ring-2 " +
-  "disabled:opacity-50 disabled:cursor-not-allowed";
+  "focus:outline-none focus:ring-1 " +
+  "disabled:opacity-40 disabled:cursor-not-allowed";
 
 export default function Input({
   label,
@@ -19,9 +19,9 @@ export default function Input({
   ...props
 }: InputProps) {
   return (
-    <div className="flex flex-col gap-1.5">
+    <div className="flex flex-col gap-1">
       {label && (
-        <label htmlFor={id} className="text-sm font-medium text-foreground">
+        <label htmlFor={id} className="text-xs font-medium text-foreground">
           {label}
         </label>
       )}
@@ -37,7 +37,7 @@ export default function Input({
         {...props}
       />
 
-      {error && <p className="text-sm text-destructive">{error}</p>}
+      {error && <p className="text-xs text-destructive">{error}</p>}
     </div>
   );
 }

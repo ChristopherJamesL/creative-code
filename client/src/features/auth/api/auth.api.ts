@@ -1,8 +1,11 @@
 import apiClient from "../../../api/axios";
+import type { User } from "../types";
 
-export const httpLogin = async () => {
-  const response = await apiClient.get("/api/auth/login");
-  console.log("response: ", response);
+export async function signIn(email: string, password: string): Promise<User> {
+  const { data } = await apiClient.post<{ data: User }>("/auth/login", { email, password });
+  return data.data;
+}
 
-  return response.data.data;
-};
+export async function signOut(): Promise<void> {
+  await apiClient.post("/auth/logout");
+}
