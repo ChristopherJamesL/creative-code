@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router";
 import HomeRedirect from "./pages/HomeRedirect";
 import LoginPage from "./pages/LoginPage";
 import AuthCallbackPage from "./pages/AuthCallbackPage";
+import SetPasswordPage from "./pages/SetPasswordPage";
 import DashboardPage from "./pages/DashboardPage";
 import DocumentsPage from "./pages/DocumentsPage";
 import DocumentPage from "./pages/DocumentPage";
@@ -18,6 +19,7 @@ function App() {
       <Route path="/" element={<HomeRedirect />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/auth/callback" element={<AuthCallbackPage />} />
+      <Route path="/auth/set-password" element={<SetPasswordPage />} />
 
       <Route element={<AppLayout />}>
         <Route element={<ProtectedRoute />}>

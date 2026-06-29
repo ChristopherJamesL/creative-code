@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useDocuments } from "../features/documents/hooks/useDocuments";
+import { useAuth } from "../features/auth/hooks/useAuth";
 import DocumentToolbar from "../features/documents/components/DocumentToolbar";
 import DocumentGrid from "../features/documents/components/DocumentGrid";
 import UploadDocumentModal from "../features/documents/components/UploadDocumentModal";
@@ -43,6 +44,8 @@ function FilterChip({
 
 export default function DocumentsPage() {
   const [uploadOpen, setUploadOpen] = useState(false);
+  const { data: user } = useAuth();
+  const isAdmin = user?.role === "admin";
   const { data: groups = [] } = useGroups();
 
   const {
@@ -146,6 +149,7 @@ export default function DocumentsPage() {
         documents={documents}
         isLoading={isLoading}
         isError={isError}
+        isAdmin={isAdmin}
       />
 
       <UploadDocumentModal

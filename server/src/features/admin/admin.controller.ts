@@ -17,8 +17,14 @@ export async function httpInviteUser(req: Request, res: Response) {
     return;
   }
 
-  const user = await inviteUser(email, full_name, userId);
-  return sendSuccess(res, { data: user, status: 201 });
+  try {
+    const user = await inviteUser(email, full_name, userId);
+    return sendSuccess(res, { data: user, status: 201 });
+  } catch (err) {
+    const message = err instanceof Error ? err.message : "Failed to invite user";
+    console.error("[inviteUser]", message);
+    res.status(400).json({ error: message });
+  }
 }
 
 export async function httpUpdateUserRole(req: Request, res: Response) {

@@ -28,36 +28,10 @@ create policy "service role manages profiles"
   using (auth.role() = 'service_role');
 
 
--- ============================================================
--- Trigger: auto-create profile when a user is created.
--- The very first user ever gets role='admin' automatically.
--- Every user after that gets role='staff'.
--- ============================================================
-create or replace function public.handle_new_user()
-returns trigger
-language plpgsql
-security definer set search_path = public
-as $$
-declare
-  is_first boolean;
-begin
-  select (count(*) = 0) into is_first from public.profiles;
-
-  insert into public.profiles (id, email, full_name, role)
-  values (
-    new.id,
-    coalesce(new.email, ''),
-    coalesce(new.raw_user_meta_data->>'full_name', ''),
-    case when is_first then 'admin' else 'staff' end
-  );
-
-  return new;
-end;
-$$;
-
-create or replace trigger on_auth_user_created
-  after insert on auth.users
-  for each row execute procedure public.handle_new_user();
+-- Profile creation is handled explicitly by the server in httpSetPassword.
+-- No trigger — profiles are only created when a user completes account setup.
+drop trigger if exists on_auth_user_created on auth.users;
+drop function if exists public.handle_new_user();
 
 
 -- ============================================================

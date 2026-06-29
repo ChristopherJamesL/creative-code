@@ -161,6 +161,23 @@ export async function downloadDocument(userId: string, documentId: string) {
   return { blob: data, fileType: doc.type as string };
 }
 
+export async function deleteDocument(documentId: string) {
+  const { data: doc, error: fetchError } = await supabase
+    .from("documents")
+    .select("file_url")
+    .eq("id", documentId)
+    .single();
+
+  if (fetchError || !doc) throw new Error("Document not found");
+
+  if (doc.file_url) {
+    await supabase.storage.from(BUCKET).remove([doc.file_url]);
+  }
+
+  const { error } = await supabase.from("documents").delete().eq("id", documentId);
+  if (error) throw new Error(error.message);
+}
+
 export async function getSignedUrl(userId: string, documentId: string) {
   const { data: doc, error: docError } = await supabase
     .from("documents")

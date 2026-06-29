@@ -26,6 +26,10 @@ export async function searchDocuments(
   return data.data;
 }
 
+export async function deleteDocument(id: string): Promise<void> {
+  await apiClient.delete(`/documents/${id}`);
+}
+
 export async function getDocumentFileUrl(documentId: string): Promise<string> {
   const { data } = await apiClient.get<{ data: { url: string } }>(
     `/documents/${documentId}/file-url`,

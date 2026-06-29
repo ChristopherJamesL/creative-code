@@ -1,7 +1,7 @@
 import { Router } from "express";
 import multer from "multer";
-import { httpGetAllDocuments, httpCreateDocument, httpGetDocument, httpSearchDocuments, httpGetFileUrl, httpStreamDocument } from "./documents.controller.js";
-import { requireAuth } from "../../middleware/auth.js";
+import { httpGetAllDocuments, httpCreateDocument, httpGetDocument, httpSearchDocuments, httpGetFileUrl, httpStreamDocument, httpDeleteDocument } from "./documents.controller.js";
+import { requireAuth, requireAdmin } from "../../middleware/auth.js";
 
 const upload = multer({
   storage: multer.memoryStorage(),
@@ -22,5 +22,6 @@ documentsRouter.post("/", upload.single("file"), httpCreateDocument);
 documentsRouter.get("/:id", httpGetDocument);
 documentsRouter.get("/:id/file", httpStreamDocument);
 documentsRouter.get("/:id/file-url", httpGetFileUrl);
+documentsRouter.delete("/:id", requireAdmin, httpDeleteDocument);
 
 export default documentsRouter;

@@ -1,5 +1,5 @@
 import type { Request, Response } from "express";
-import { getAllDocuments, createDocument, getDocumentById, searchDocumentContent, getSignedUrl, downloadDocument } from "./documents.service.js";
+import { getAllDocuments, createDocument, getDocumentById, searchDocumentContent, getSignedUrl, downloadDocument, deleteDocument } from "./documents.service.js";
 import { sendSuccess } from "../../utils/response.js";
 import type { AuthenticatedRequest } from "../../middleware/auth.js";
 
@@ -95,6 +95,17 @@ export async function httpStreamDocument(req: Request, res: Response) {
   } catch (err) {
     const message = err instanceof Error ? err.message : "Failed to stream document";
     console.error("[streamDocument]", id, message);
+    res.status(500).json({ error: message });
+  }
+}
+
+export async function httpDeleteDocument(req: Request, res: Response) {
+  const { id } = req.params as { id: string };
+  try {
+    await deleteDocument(id);
+    return sendSuccess(res, { data: null });
+  } catch (err) {
+    const message = err instanceof Error ? err.message : "Delete failed";
     res.status(500).json({ error: message });
   }
 }

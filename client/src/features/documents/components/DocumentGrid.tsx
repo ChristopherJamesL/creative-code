@@ -6,9 +6,10 @@ interface DocumentGridProps {
   documents: Document[];
   isLoading?: boolean;
   isError?: boolean;
+  isAdmin?: boolean;
 }
 
-export default function DocumentGrid({ documents, isLoading, isError }: DocumentGridProps) {
+export default function DocumentGrid({ documents, isLoading, isError, isAdmin }: DocumentGridProps) {
   if (isLoading) {
     return (
       <div className="flex justify-center py-16 rounded-lg border border-border bg-card">
@@ -47,7 +48,7 @@ export default function DocumentGrid({ documents, isLoading, isError }: Document
 
       <div className="divide-y divide-border">
         {documents.map((doc) => (
-          <DocumentCard key={doc.id} doc={doc} />
+          <DocumentCard key={doc.id} doc={doc} isAdmin={isAdmin} />
         ))}
       </div>
     </div>

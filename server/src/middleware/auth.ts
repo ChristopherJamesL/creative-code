@@ -7,6 +7,15 @@ export interface AuthenticatedRequest extends Request {
   userRole: string;
 }
 
+export function requireAdmin(req: Request, res: Response, next: NextFunction) {
+  const authed = req as AuthenticatedRequest;
+  if (authed.userRole !== "admin") {
+    res.status(403).json({ error: "Forbidden" });
+    return;
+  }
+  next();
+}
+
 export async function requireAuth(req: Request, res: Response, next: NextFunction) {
   const token = req.cookies?.access_token as string | undefined;
 
